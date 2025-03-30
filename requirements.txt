@@ -1,0 +1,5 @@
+jsonlines==4.0.0
+psycopg2-binary==2.9.9
+SQLAlchemy==2.0.27
+fastapi==0.110.0
+uvicorn==0.27.1 
