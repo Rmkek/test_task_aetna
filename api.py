@@ -9,12 +9,12 @@ app = FastAPI()
 async def fetch_data(
     offset: int = Query(default=0, ge=0, description="Number of records to skip"),
     batch_size: int = Query(default=100, ge=1, le=1000, description="Number of records to return")
-) -> List[Dict[Any, Any]]:
+):
     query = select(insurance_data).offset(offset).limit(batch_size)
     
 
     with engine.connect() as connection:
         result = connection.execute(query)
-        records = [dict(row) for row in result]
+        records = [str(row) for row in result]
     
     return records 
